@@ -37,13 +37,18 @@ public class Main {
             System.out.print("Choose: ");
             String choice = sc.nextLine().trim();
             switch (choice) {
-                case "1" -> doLogin();
-                case "2" -> doRegister();
-                case "0" -> {
+                case "1":
+                    doLogin();
+                    break;
+                case "2":
+                    doRegister();
+                    break;
+                case "0":
                     System.out.println("Goodbye!");
                     return;
-                }
-                default -> System.out.println("Invalid.");
+                default:
+                    System.out.println("Invalid.");
+                    break;
             }
         }
     }
@@ -87,22 +92,27 @@ public class Main {
             System.out.println("2) List events");
             System.out.println("3) View signups for event");
             System.out.println("4) Approve a signup");
-            System.out.println("5) Check-in volunteer (mark attendance)");
-            System.out.println("6) Reports");
             System.out.println("0) Logout");
             System.out.print("Choose: ");
             String c = sc.nextLine().trim();
             switch (c) {
-                case "1" -> adminCreateEvent();
-                case "2" -> listEvents();
-                case "3" -> adminViewSignups();
-                case "4" -> adminApproveSignup();
-                case "5" -> adminCheckIn();
-                case "6" -> adminReports();
-                case "0" -> {
+                case "1":
+                    adminCreateEvent();
+                    break;
+                case "2":
+                    listEvents();
+                    break;
+                case "3":
+                    adminViewSignups();
+                    break;
+                case "4":
+                    adminApproveSignup();
+                    break;
+                case "0":
                     return;
-                }
-                default -> System.out.println("Invalid.");
+                default:
+                    System.out.println("Invalid.");
+                    break;
             }
         }
     }
@@ -149,72 +159,34 @@ public class Main {
         System.out.println(ok ? "Approved." : "Not found.");
     }
 
-    private static void adminCheckIn() {
-        System.out.print("Event ID: ");
-        String eid = sc.nextLine().trim();
-        System.out.print("Volunteer ID: ");
-        String vid = sc.nextLine().trim();
-        Event e = events.findById(eid);
-        int hours = (e == null) ? 2 : e.getDurationHrs();
-        Attendance a = attend.checkIn(eid, vid, hours);
-        System.out.println("Checked in: " + (a != null));
-    }
-
-    private static void adminReports() {
-        System.out.println("\n-- Reports --");
-        System.out.println("1) Hours by volunteer");
-        System.out.println("2) Attendance for event");
-        System.out.print("Choose: ");
-        String c = sc.nextLine().trim();
-        switch (c) {
-            case "1" -> {
-                Map<String, Integer> map = attend.hoursByVolunteer();
-                if (map.isEmpty())
-                    System.out.println("No hours yet.");
-                else
-                    for (var e : map.entrySet()) {
-                        Volunteer v = vols.findById(e.getKey());
-                        String name = (v == null ? e.getKey() : v.getName());
-                        System.out.println(name + ": " + e.getValue() + " hours");
-                    }
-            }
-            case "2" -> {
-                System.out.print("Event ID: ");
-                String eid = sc.nextLine().trim();
-                List<Attendance> list = attend.attendanceForEvent(eid);
-                if (list.isEmpty())
-                    System.out.println("No attendance records.");
-                else
-                    for (Attendance a : list) {
-                        Volunteer v = vols.findById(a.getVolunteerId());
-                        String name = (v == null ? a.getVolunteerId() : v.getName());
-                        System.out.println("Volunteer=" + name + ", checkIn=" + a.getCheckIn() + ", hours="
-                                + a.getHoursCredited());
-                    }
-            }
-        }
-    }
-
-    // ========== VOLUNTEER MENU ==========
     private static void volunteerMenu(Volunteer v) {
         while (true) {
             System.out.println("\n=== Volunteer Menu (" + v.getName() + ") ===");
-            System.out.println("1) View all events");
-            System.out.println("2) Search events by title");
+            System.out.println("1) List events");
+            System.out.println("2) Search events");
             System.out.println("3) Sign up for event");
-            System.out.println("4) My hours (report)");
+            System.out.println("4) View credited hours");
             System.out.println("0) Logout");
             System.out.print("Choose: ");
             String c = sc.nextLine().trim();
             switch (c) {
-                case "1" -> listEvents();
-                case "2" -> searchEvents();
-                case "3" -> volunteerSignup(v);
-                case "4" -> volunteerHours(v);
-                case "0" -> {
+                case "1":
+                    listEvents();
+                    break;
+                case "2":
+                    searchEvents();
+                    break;
+                case "3":
+                    volunteerSignup(v);
+                    break;
+                case "4":
+                    volunteerHours(v);
+                    break;
+                case "0":
                     return;
-                }
-                default -> System.out.println("Invalid.");
+                default:
+                    System.out.println("Invalid.");
+                    break;
             }
         }
     }

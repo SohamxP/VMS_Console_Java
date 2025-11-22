@@ -1,0 +1,2 @@
+U1,Admin,admin@vms.local,240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9,ADMIN
+Uecef39c7,Soham Panchal,sohampancha487@gmail.com,7232e58f854791ddd73c99deb4106d319fc35303b1f6a176304ba282b78e2137,VOLUNTEER
