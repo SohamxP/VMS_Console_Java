@@ -1,7 +1,8 @@
-package vms.service;
+package src.vms.service;
 
-import vms.model.*;
 import java.util.*;
+
+import src.vms.model.*;
 
 public class AuthService {
     private final DataStore db;

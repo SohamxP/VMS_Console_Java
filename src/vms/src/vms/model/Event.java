@@ -1,4 +1,4 @@
-package vms.model;
+package src.vms.model;
 
 public class Event {
     private String id, title, date, time, location;

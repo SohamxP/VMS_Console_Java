@@ -1,8 +1,9 @@
-package vms.service;
+package src.vms.service;
 
-import vms.model.*;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import src.vms.model.*;
 
 public class EventService {
     private final DataStore db;

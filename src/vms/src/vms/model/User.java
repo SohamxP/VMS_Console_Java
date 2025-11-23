@@ -1,4 +1,4 @@
-package vms.model;
+package src.vms.model;
 
 public abstract class User {
     protected String id;

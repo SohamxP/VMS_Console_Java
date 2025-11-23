@@ -1,4 +1,4 @@
-package vms.model;
+package src.vms.model;
 
 public class Signup {
     private String id, eventId, volunteerId, status;

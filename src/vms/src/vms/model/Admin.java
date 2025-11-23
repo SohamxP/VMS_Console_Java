@@ -1,4 +1,4 @@
-package vms.model;
+package src.vms.model;
 
 public class Admin extends User {
     public Admin(String id, String name, String email, String passwordHash) {

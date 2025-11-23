@@ -1,4 +1,4 @@
-package vms.model;
+package src.vms.model;
 
 public class Volunteer extends User {
     public Volunteer(String id, String name, String email, String passwordHash) {
