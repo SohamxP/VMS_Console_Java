@@ -181,7 +181,7 @@ public class DataStore {
     public Signup addSignup(String eventId, String volunteerId) {
         List<Signup> list = loadSignups();
 
-        Signup s = new Signup(nextId("S"), eventId, volunteerId, "APPROVED");
+        Signup s = new Signup(nextId("S"), eventId, volunteerId, "PENDING");
         list.add(s);
         saveSignups(list);
 
